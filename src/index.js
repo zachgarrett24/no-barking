@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import {
-    Header
+    Header,
+    BarkMeter
 } from './components';
 
 const App = () => {
     return (
         <div id="App">
             <Header />
+            <BarkMeter />
         </div>
     );
 }
