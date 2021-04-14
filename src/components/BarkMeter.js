@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import './BarkMeter.css';
 
 const BarkMeter = () => {
 
@@ -25,8 +27,10 @@ const BarkMeter = () => {
                     values += (array[i]);
                 }
                 const average = values / length;
-    
-                console.log(Math.round(average));
+                if(average > 75){
+                    console.log(Math.round(average));
+                }
+                
             }
         })
         .catch(function(err) {
@@ -37,7 +41,18 @@ const BarkMeter = () => {
     // listening();
 
     return (
-        <h1>Hello World</h1>
+        <div className={"meter-wrapper"}>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+            <div className={"meter"}></div>
+        </div>
     )
 
 };
