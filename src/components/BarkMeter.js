@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './BarkMeter.css';
 
 const BarkMeter = () => {
+    const [ trigger, setTrigger ] = useState(false);
+
+    // const sound = new Audio()
+
+    // const playSound = () => {
+    //     sound.src = '20000Hz.wav';
+    //     sound.play();
+    //     setTrigger(false);
+    // };
+
 
     const listening = () => {
         navigator.mediaDevices.getUserMedia({ audio: true, video: false })
@@ -29,6 +39,9 @@ const BarkMeter = () => {
                 const average = values / length;
                 if(average > 75){
                     console.log(Math.round(average));
+                    setTrigger(true);
+                    // playSound();
+                    
                 }
                 
             }
@@ -38,9 +51,9 @@ const BarkMeter = () => {
         })
     }
 
-    // listening();
+    listening();
 
-    return (
+    return (<>
         <div className={"meter-wrapper"}>
             <div className={"meter"}></div>
             <div className={"meter"}></div>
@@ -53,7 +66,10 @@ const BarkMeter = () => {
             <div className={"meter"}></div>
             <div className={"meter"}></div>
         </div>
-    )
+        <div>
+            {trigger ? <p>sounds icon</p> : ""}
+        </div>
+    </>)
 
 };
 
