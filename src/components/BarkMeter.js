@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './BarkMeter.css';
+import audio from '../Whistle.mp3';
 
 const BarkMeter = () => {
     const [ trigger, setTrigger ] = useState(false);
 
-    // const sound = new Audio()
-
-    // const playSound = () => {
-    //     sound.src = '20000Hz.wav';
-    //     sound.play();
-    //     setTrigger(false);
-    // };
-
+    const playSound = () => {
+        new Audio(audio).play();
+    }
 
     const listening = () => {
         navigator.mediaDevices.getUserMedia({ audio: true, video: false })
@@ -39,9 +35,7 @@ const BarkMeter = () => {
                 const average = values / length;
                 if(average > 75){
                     console.log(Math.round(average));
-                    setTrigger(true);
-                    // playSound();
-                    
+                    playSound();
                 }
                 
             }
