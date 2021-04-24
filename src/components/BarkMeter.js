@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
+import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import './BarkMeter.css';
 import audio from '../Whistle.mp3';
 
@@ -45,7 +48,7 @@ const BarkMeter = () => {
         })
     }
 
-    listening();
+    // listening();
 
     return (<>
         <div className={"meter-wrapper"}>
@@ -63,6 +66,14 @@ const BarkMeter = () => {
         <div>
             {trigger ? <p>sounds icon</p> : ""}
         </div>
+        <div className={"icons"}>
+            <FontAwesomeIcon style={{color: "red"}} icon={faMicrophone} />
+            <FontAwesomeIcon style={{color: "grey"}} icon={faVolumeUp} />
+        </div>
+        <div className={"listen"}>
+            <button>LISTEN</button>
+        </div>
+        
     </>)
 
 };

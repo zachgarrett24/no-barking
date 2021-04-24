@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap');
 
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   font-family: 'Balsamic Sans', sans-serif;
   font-size: 16px;
 
-  background: lightseagreen;
+  background: white;
   padding: 1em;
 }
 
 header h1 {
-  font-size: 2.4em;
-  font-style: italic;
+  font-size: 9em;
+  font-family: 'Bungee Hairline', cursive;
+  font-style: normal;
   color: white;
-  text-shadow: 1px 1px 3px black;
+  text-shadow: 1px 1px 1px black;
 }
