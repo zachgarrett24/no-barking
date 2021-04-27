@@ -8,6 +8,8 @@ import audio from '../Whistle.mp3';
 
 const BarkMeter = () => {
     const [ trigger, setTrigger ] = useState(false);
+    const [audioTrigger, setAudioTrigger ] = useState(false);
+    const [ listenState, setListenState ] = useState(false);
 
     const playSound = () => {
         new Audio(audio).play();
@@ -39,6 +41,7 @@ const BarkMeter = () => {
                 if(average > 75){
                     console.log(Math.round(average));
                     playSound();
+                    audioTrigger ? setAudioTrigger(false) : setAudioTrigger(true);
                 }
                 
             }
@@ -48,7 +51,10 @@ const BarkMeter = () => {
         })
     }
 
-    // listening();
+    const handleListen = (e) => {
+        e.preventDefault();
+        trigger ? setTrigger(false) : setTrigger(true);
+    }
 
     return (<>
         <div className={"meter-wrapper"}>
@@ -63,15 +69,21 @@ const BarkMeter = () => {
             <div className={"meter"}></div>
             <div className={"meter"}></div>
         </div>
-        <div>
-            {trigger ? <p>sounds icon</p> : ""}
+        <div className={"icons"}>{ 
+                trigger ? <FontAwesomeIcon style={{color: "red"}} icon={faMicrophone} />
+                : ""
+            }
+            <div>{ audioTrigger ? 
+                <FontAwesomeIcon style={{color: "grey"}} icon={faVolumeUp} />
+                : ""
+            }</div>
+            
         </div>
-        <div className={"icons"}>
-            <FontAwesomeIcon style={{color: "red"}} icon={faMicrophone} />
-            <FontAwesomeIcon style={{color: "grey"}} icon={faVolumeUp} />
-        </div>
+
+        
+        
         <div className={"listen"}>
-            <button>LISTEN</button>
+            <button onClick={handleListen}>LISTEN</button>
         </div>
         
     </>)
