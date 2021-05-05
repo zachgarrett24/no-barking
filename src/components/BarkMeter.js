@@ -54,6 +54,11 @@ const BarkMeter = () => {
     const handleListen = (e) => {
         e.preventDefault();
         trigger ? setTrigger(false) : setTrigger(true);
+        !listenState ? setListenState(true) : setListenState(false);
+        if(listenState){
+            // listening();
+            setListenState(false);
+        }
     }
 
     return (<>

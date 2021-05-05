@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    background: white;
+    padding: .5em;
+}
+
+.item {
+    font-family: 'Bungee Hairline', cursive;
+    font-style: normal;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    margin-top: 45px;
+    border-bottom: .5px solid lightgray;
+    
+}

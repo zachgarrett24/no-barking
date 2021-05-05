@@ -1,0 +1,14 @@
+#App {
+    display: flex;
+    flex-direction: row;
+}
+
+SideNav {
+    width: 5%;
+    border: 1px solid black;
+}
+
+.container {
+    width: 90%;
+    border: 1px solid grey;
+}
